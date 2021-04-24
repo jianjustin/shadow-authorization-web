@@ -13,11 +13,6 @@ function App(){
   return (
     <BrowserRouter>
     <div className="App">
-      <h2>菜单栏</h2>
-      <ul>
-        <li><Link to="/login">登录页面</Link></li>
-      </ul>
-
       <Switch>
         {routes.map((route, index) => (
           <Route
