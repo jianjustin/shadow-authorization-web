@@ -12,6 +12,11 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {
+  useHistory,
+  useLocation
+} from "react-router-dom";
+import { useAuth } from '../../common/use-auth';
 
 function Copyright() {
   return (
@@ -48,6 +53,17 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
+
+  let history = useHistory();
+  let location = useLocation();
+  let auth = useAuth();
+
+  let { from } = location.state || { from: { pathname: "/" } };
+  let login = () => {
+    auth.signin(() => {
+      history.replace(from);
+    });
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -87,11 +103,11 @@ export default function SignIn() {
             label="Remember me"
           />
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={login}
           >
             Sign In
           </Button>

@@ -5,13 +5,25 @@ import Admin from '../views/Admin/AdminPage';
 const routes = [
     {
         path: "/login",
-        //exact: true,
+        exact: true,
         main: () => <Login></Login>
-    },{
-        path: "/",
-        main: () => <Admin></Admin>
     }
 
 ];
 
-export default routes;
+const private_routes = [
+    {
+        path: "/",
+        exact: true,
+        main: () => <Admin></Admin>
+    },{
+        path: "/admin",
+        exact: true,
+        main: () => <Admin></Admin>
+    }
+];
+
+export {
+    routes,
+    private_routes
+};
