@@ -85,6 +85,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     height: '100vh',
     overflow: 'auto',
+    paddingLeft: `${drawerWidth}px`,
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -101,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -127,7 +128,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
+            后台管理系统
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -155,23 +156,10 @@ export default function Dashboard() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            {/* Chart */}
-            <Grid item xs={12} md={8} lg={9}>
+        <Container className={classes.container} maxWidth={false}>
+          <Grid container>
+            <Grid item xs={12} md={12} lg={12}>
               <Paper className={fixedHeightPaper}>
-                
-              </Paper>
-            </Grid>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-                
-              </Paper>
-            </Grid>
-            {/* Recent Orders */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
                 
               </Paper>
             </Grid>
@@ -184,3 +172,5 @@ export default function Dashboard() {
     </div>
   );
 }
+
+export default Dashboard;
