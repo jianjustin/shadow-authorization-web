@@ -2,8 +2,11 @@ import Login from '../views/Login/LoginPage';
 import Admin from '../views/Admin/AdminPage';
 
 import AdminPageHome from '../views/Admin/AdminPageHome';
-import AdminPageInbox from '../views/Admin/AdminPageInbox';
-import AdminPageDrafts from '../views/Admin/AdminPageDrafts';
+
+import User from '../views/User/User';
+import Role from '../views/Role/Role';
+import Resource from '../views/Resource/Resource';
+import Authority from '../views/Authority/Authority';
 
 const routes = [
     {
@@ -23,13 +26,21 @@ const private_routes = [
                 exact: true,
                 component: AdminPageHome
             },{
-                path: "/admin/inbox",
+                path: "/admin/user",
                 exact: true,
-                component: AdminPageInbox
+                component: User
             },{
-                path: "/admin/drafts",
+                path: "/admin/role",
                 exact: true,
-                component: AdminPageDrafts
+                component: Role
+            },{
+                path: "/admin/resource",
+                exact: true,
+                component: Resource
+            },{
+                path: "/admin/authority",
+                exact: true,
+                component: Authority
             }
         ]
     }
