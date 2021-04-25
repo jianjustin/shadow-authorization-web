@@ -5,8 +5,7 @@ import Admin from '../views/Admin/AdminPage';
 const routes = [
     {
         path: "/login",
-        exact: true,
-        main: () => <Login></Login>
+        component: Login
     }
 
 ];
@@ -14,12 +13,11 @@ const routes = [
 const private_routes = [
     {
         path: "/",
-        exact: true,
-        main: () => <Admin></Admin>
+        component: Admin
     },{
         path: "/admin",
         exact: true,
-        main: () => <Admin></Admin>
+        component: Admin
     }
 ];
 
