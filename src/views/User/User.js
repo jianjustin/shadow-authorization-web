@@ -74,9 +74,9 @@ function User(){
         <Grid item xs={12} className={classes.grid}>
             <Paper className={classes.paper}>
                 <div className={classes.buttonGroup}>
-                    <Button variant="contained" className={classes.addButton} startIcon={<AddIcon />} color="primary">新增</Button>
-                    <Button variant="contained" className={classes.editButton} startIcon={<EditIcon />} color="default">编辑</Button>
-                    <Button variant="contained" className={classes.delButton} startIcon={<DeleteIcon />} color="secondary">删除</Button>
+                    <Button variant="contained" className={classes.addButton} startIcon={<AddIcon />} color="primary" size="small">新增</Button>
+                    <Button variant="contained" className={classes.editButton} startIcon={<EditIcon />} color="default" size="small">编辑</Button>
+                    <Button variant="contained" className={classes.delButton} startIcon={<DeleteIcon />} color="secondary" size="small">删除</Button>
                 </div>
             </Paper>
         </Grid>
