@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -68,6 +68,7 @@ const columns = [
 
 function AdminPageHome(){
   const classes = useStyles();
+  const [item, setItem] = useState(null);
 
   return (
     <div>
@@ -75,7 +76,7 @@ function AdminPageHome(){
             <Paper className={classes.paper}>
                 <div className={classes.buttonGroup}>
                     <Button variant="contained" className={classes.addButton} startIcon={<AddIcon />} color="primary" size="small">新增</Button>
-                    <Button variant="contained" className={classes.editButton} startIcon={<EditIcon />} color="default" size="small">编辑</Button>
+                    <Button variant="contained" className={classes.editButton} startIcon={<EditIcon />} color="default" size="small" onClick={()=>{console.log("item:"+JSON.stringify(item))}}>编辑</Button>
                     <Button variant="contained" className={classes.delButton} startIcon={<DeleteIcon />} color="secondary" size="small">删除</Button>
                 </div>
             </Paper>
@@ -83,7 +84,20 @@ function AdminPageHome(){
         <Grid item xs={12} className={classes.grid}>
             <Paper>
                 <div style={{ height: 400, width: '100%' }}>
-                    <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
+                    <DataGrid 
+                      rows={rows} 
+                      columns={columns} 
+                      pageSize={5} 
+                      checkboxSelection 
+                      onRowSelected={(x) => {
+                        var rows = x.api.current.getSelectedRows();
+                        var data = [];
+                        rows.forEach((item) => data.push(item));
+                        setItem(data);
+                        console.log("data:"+JSON.stringify(data));
+                        
+                      }}
+                      />
                 </div>
             </Paper>
         </Grid>
